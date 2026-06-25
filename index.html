@@ -3,45 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consciência Digital: O Impacto das Deepfakes</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Cidadania Digital & IA</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonte Inter para um visual moderno profissional -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header>
-        <h1>Cidadania Digital & IA</h1>
-        <p>Desmascarando as Deepfakes e a Desinformação</p>
-        <button id="btn-acessibilidade">Alternar Modo Escuro</button>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <h1>Cidadania Digital <span>& IA</span></h1>
+                <p>Desmascarando as Deepfakes e a Desinformação</p>
+            </div>
+            <button id="toggle-dark-mode" aria-label="Alternar tema do site" class="theme-btn">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+        </div>
     </header>
 
-    <main>
-        <section id="sobre">
+    <main class="main-content">
+        <section class="info-card">
             <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam a aparência e a voz de pessoas reais, frequentemente utilizados para espalhar desinformação automatizada.</p>
+            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam com extrema precisão a aparência e a voz de pessoas reais. Essa tecnologia é frequentemente utilizada de forma automatizada para espalhar desinformação, manipular debates públicos e enganar usuários na internet.</p>
         </section>
 
-        <section id="quiz-section">
-            <h2>Quiz Interativo: É Real ou Deepfake?</h2>
+        <section class="quiz-card">
+            <h2>Quiz Interativo: <span>É Real ou Deepfake?</span></h2>
+            
             <form id="quiz-form">
-                <div class="questão">
-                    <p>1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</p>
-                    <label>
-                        <input type="radio" name="q1" value="errado"> Compartilho imediatamente para alertar meus amigos.
-                    </label>
-                    <label>
-                        <input type="radio" name="q1" value="certo"> Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.
-                    </label>
+                <div class="question-block">
+                    <p class="question-text">1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</p>
+                    
+                    <div class="options-group">
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="errado">
+                            <span class="custom-radio"></span>
+                            <span class="text-content">Compartilho imediatamente para alertar meus amigos e familiares.</span>
+                        </label>
+                        
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="correto">
+                            <span class="custom-radio"></span>
+                            <span class="text-content">Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.</span>
+                        </label>
+                    </div>
                 </div>
-                <button type="submit" id="btn-enviar">Verificar Respostas</button>
+                
+                <button type="submit" class="submit-btn">Verificar Resposta</button>
             </form>
-            <div id="resultado-quiz" class="escondido"></div>
+            
+            <div id="resultado" class="result-message" aria-live="polite"></div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital. Conteúdo 100% Autoral.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
