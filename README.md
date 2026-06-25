@@ -1,17 +1,50 @@
-# Portal de Consciência Digital: Deepfakes e Desinformação
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania Digital & IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cidadania Digital & IA</h1>
+        <p>Desmascarando as Deepfakes e a Desinformação</p>
+        <button id="toggle-dark-mode" aria-label="Alternar modo escuro">Alternar Modo Escuro</button>
+    </header>
 
-## 🎯 Objetivo do Projeto
-Este site interativo foi desenvolvido como parte do Plano de Recuperação Disciplinar de Educação Digital e Computação de 2026. O objetivo principal é educar e conscientizar a comunidade escolar sobre os perigos das deepfakes e os impactos da desinformação em massa gerada por Inteligência Artificial.
+    <main>
+        <section id="sobre">
+            <h2>O que são Deepfakes?</h2>
+            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial...</p>
+        </section>
 
-## 🛠️ Tecnologias Utilizadas
-- HTML5 Semântico
-- CSS3 Avançado (Flexbox e Design Responsivo)
-- JavaScript Vanilla (Manipulação de DOM e Lógica Dinâmica)
+        <section id="quiz">
+            <h2>Quiz Interativo: É Real ou Deepfake?</h2>
+            <form id="quiz-form">
+                <fieldset>
+                    <legend>1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</legend>
+                    
+                    <label>
+                        <input type="radio" name="q1" value="errado">
+                        Compartilho imediatamente para alertar meus amigos.
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="q1" value="correto">
+                        Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.
+                    </label>
+                </fieldset>
+                <button type="submit">Verificar Respostas</button>
+            </form>
+            <div id="resultado" aria-live="polite"></div>
+        </section>
+    </main>
 
-## 🤖 Uso de Inteligência Artificial e Prompts Éticos
-Seguindo os critérios de ética digital, as estruturas base de estilo foram otimizadas via IA. Prompts utilizados:
-1. *“Gere uma paleta de cores CSS moderna com foco em segurança cibernética e tecnologia usando tons de azul escuro e ciano.”*
-2. *“Crie uma estrutura de Media Query simples para adaptar um formulário Flexbox para telas de smartphones.”*
+    <footer>
+        <p>&copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital. Conteúdo 100% Autoral.</p>
+    </footer>
 
-## 🌐 Como Acessar o Projeto
-O projeto está publicado e pode ser visualizado online através do GitHub Pages.
+    <script src="script.js"></script>
+</body>
+</html>
