@@ -1,38 +1,38 @@
-// Seleção de elementos do DOM
-const btnAcessibilidade = document.getElementById('btn-acessibilidade');
-const quizForm = document.getElementById('quiz-form');
-const resultadoQuiz = document.getElementById('resultado-quiz');
+// Gerenciamento do Modo Escuro
+const toggleBtn = document.getElementById('toggle-dark-mode');
+const currentTheme = localStorage.getItem('theme');
 
-// 1. Funcionalidade de Acessibilidade: Modo Escuro
-btnAcessibilidade.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-});
+if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+}
 
-// 2. Processamento e Validação do Quiz Anti-Desinformação
-quizForm.addEventListener('submit', (evento) => {
-    evento.preventDefault(); // Evita o recarregamento da página
-
-    // Captura a opção selecionada usando o name do input
-    const respostaSelecionada = quizForm.q1.value;
+toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-mode');
     
-    // Variável para processar a mensagem de feedback antes de exibir
-    let mensagemFeedback = "";
-
-    if (!respostaSelecionada) {
-        mensagemFeedback = "Por favor, selecione uma alternativa antes de enviar.";
-        resultadoQuiz.style.backgroundColor = "#fef08a";
-        resultadoQuiz.style.color = "#854d0e";
-    } else if (respostaSelecionada === "certo") {
-        mensagemFeedback = "Parabéns! Você demonstrou uma excelente atitude de Cidadania Digital. Sempre verifique fontes!";
-        resultadoQuiz.style.backgroundColor = "#bbf7d0";
-        resultadoQuiz.style.color = "#166534";
-    } else {
-        mensagemFeedback = "Cuidado! Compartilhar mídias sem checar espalha desinformação automatizada gerada por IA.";
-        resultadoQuiz.style.backgroundColor = "#fecaca";
-        resultadoQuiz.style.color = "#991b1b";
+    let theme = 'light';
+    if (document.documentElement.classList.contains('dark-mode')) {
+        theme = 'dark';
     }
-
-    // Exibe o resultado dinamicamente modificando o DOM
-    resultadoQuiz.textContent = mensagemFeedback;
-    resultadoQuiz.classList.remove('escondido');
+    localStorage.setItem('theme', theme);
 });
+
+// Validação do Quiz
+const quizForm = document.getElementById('quiz-form');
+const resultadoDiv = document.getElementById('resultado');
+
+quizForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const selectedOption = quizForm.querySelector('input[name="q1"]:checked');
+    
+    if (!selectedOption) {
+        resultadoDiv.innerHTML = "<p style='color: red;'>Por favor, selecione uma resposta.</p>";
+        return;
+    }
+    
+    if (selectedOption.value === 'correto') {
+        resultadoDiv.innerHTML = "<p style='color: green;'><strong>Correto!</strong> Sempre verifique em fontes confiáveis.</p>";
+    } else {
+        resultadoDiv.innerHTML = "<p style='color: red;'><strong>Incorreto.</strong> Compartilhar sem checar espalha desinformação.</p>";
+    }
+});
+
