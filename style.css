@@ -1,0 +1,111 @@
+/* Configurações Globais e Variáveis (Identidade Visual Tecnológica) */
+:root {
+    --cor-principal: #0f172a;
+    --cor-secundaria: #38bdf8;
+    --cor-fundo: #f8fafc;
+    --cor-texto: #334155;
+    --cor-card: #ffffff;
+}
+
+/* Classe para o Modo Escuro via JS */
+.dark-mode {
+    --cor-principal: #38bdf8;
+    --cor-secundaria: #0f172a;
+    --cor-fundo: #0f172a;
+    --cor-texto: #f8fafc;
+    --cor-card: #1e293b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background-color: #1e293b;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section {
+    background-color: var(--cor-card);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Flexbox no Formulário */
+.questão {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+label {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* Efeito Hover Suave (Critério de Usabilidade Nível 4) */
+label:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+button {
+    background-color: #38bdf8;
+    color: #0f172a;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+.escondido {
+    display: none;
+}
+
+#resultado-quiz {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* Responsividade (Media Queries) */
+@media (max-width: 600px) {
+    main {
+        margin: 10px;
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
