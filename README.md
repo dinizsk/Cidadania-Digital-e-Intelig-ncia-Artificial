@@ -1,50 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital & IA</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Cidadania Digital & IA</h1>
-        <p>Desmascarando as Deepfakes e a Desinformação</p>
-        <button id="toggle-dark-mode" aria-label="Alternar modo escuro">Alternar Modo Escuro</button>
-    </header>
+### Cidadania Digital & IA 🌐🤖
 
-    <main>
-        <section id="sobre">
-            <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial...</p>
-        </section>
+Uma plataforma web interativa dedicada a conscientizar internautas sobre os perigos da desinformação, com foco especial na identificação e combate às **Deepfakes**.
 
-        <section id="quiz">
-            <h2>Quiz Interativo: É Real ou Deepfake?</h2>
-            <form id="quiz-form">
-                <fieldset>
-                    <legend>1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</legend>
-                    
-                    <label>
-                        <input type="radio" name="q1" value="errado">
-                        Compartilho imediatamente para alertar meus amigos.
-                    </label>
-                    
-                    <label>
-                        <input type="radio" name="q1" value="correto">
-                        Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.
-                    </label>
-                </fieldset>
-                <button type="submit">Verificar Respostas</button>
-            </form>
-            <div id="resultado" aria-live="polite"></div>
-        </section>
-    </main>
+* * *
 
-    <footer>
-        <p>&copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital. Conteúdo 100% Autoral.</p>
-    </footer>
+### 🚀 Funcionalidades
 
-    <script src="script.js"></script>
-</body>
-</html>
+*   **Seção Informativa:** Explicações diretas e acessíveis sobre o conceito de Deepfakes e seus impactos na sociedade.
+*   **Modo Escuro (Dark Mode):** Alternância de tema visual integrada com persistência automática de preferência através do `localStorage`.
+*   **Quiz Interativo:** Teste prático de tomada de decisão para avaliar o comportamento do usuário diante de notícias falsas com feedback em tempo real.
+*   **Design Responsivo:** Interface otimizada para visualização em computadores, tablets e smartphones.
+
+### 🛠️ Tecnologias Utilizadas
+
+*   **HTML5:** Estruturação semântica e acessível (tags `<main>`, `<section>`, `<fieldset>`).
+*   **CSS3:** Estilização baseada em variáveis dinâmicas (`:root`) para transições suaves de tema.
+*   **JavaScript (Vanilla):** Manipulação do DOM para lógica de validação do quiz e controle de estado do tema.
+
+### ⚙️ Como Executar o Projeto
+
+1.  Clone este repositório para a sua máquina local:
+    
+    bash
+    
+        git clone https://github.com
+        
+    
+    Use o código com cuidado.
+    
+2.  Acesse a pasta do projeto:
+    
+    bash
+    
+        cd Cidadania-Digital-e-Inteligencia-Artificial
+        
+    
+    Use o código com cuidado.
+    
+3.  Abra o arquivo `index.html` em qualquer navegador web moderno de sua preferência.
+
+### 📄 Licença e Autoria
+
+*   Conteúdo **100% Autoral**.
+*   Desenvolvido em 2026 para o **Projeto de Cidadania Digital**.
