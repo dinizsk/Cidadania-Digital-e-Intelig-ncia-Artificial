@@ -4,65 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cidadania Digital & IA</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Fonte Inter para um visual moderno profissional -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --primary-color: #4a90e2;
+            --accent-color: #e74c3c;
+            --success-color: #2ecc71;
+            --border-radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f5f5f5;
+            --primary-color: #357abd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vi;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .btn-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn-toggle:hover {
+            opacity: 0.9;
+        }
+
+        main {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 2px solid transparent;
+            background-color: rgba(0,0,0,0.02);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        [data-theme="dark"] .option-label {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .option-label:hover {
+            background-color: rgba(74, 144, 226, 0.1);
+        }
+
+        .option-label input {
+            accent-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .btn-verify {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .success {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: var(--success-color);
+            border-left: 5px solid var(--success-color);
+        }
+
+        .danger {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-container">
-            <div class="logo-area">
-                <h1>Cidadania Digital <span>& IA</span></h1>
-                <p>Desmascarando as Deepfakes e a Desinformação</p>
-            </div>
-            <button id="toggle-dark-mode" aria-label="Alternar tema do site" class="theme-btn">
-                <span class="icon-sun">☀️</span>
-                <span class="icon-moon">🌙</span>
-            </button>
+
+    <header>
+        <div>
+            <h1>Cidadania Digital & IA</h1>
+            <div class="subtitle">Desmascarando as Deepfakes e a Desinformação</div>
         </div>
+        <button class="btn-toggle" onclick="toggleTheme()">Alternar Modo</button>
     </header>
 
-    <main class="main-content">
-        <section class="info-card">
+    <main>
+        <section class="card">
             <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam com extrema precisão a aparência e a voz de pessoas reais. Essa tecnologia é frequentemente utilizada de forma automatizada para espalhar desinformação, manipular debates públicos e enganar usuários na internet.</p>
+            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam a aparência e a voz de pessoas reais, frequentemente utilizados para espalhar desinformação automatizada.</p>
         </section>
 
-        <section class="quiz-card">
-            <h2>Quiz Interativo: <span>É Real ou Deepfake?</span></h2>
+        <section class="card">
+            <h2>Quiz Interativo: É Real ou Deepfake?</h2>
+            <p><strong>1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</strong></p>
             
-            <form id="quiz-form">
-                <div class="question-block">
-                    <p class="question-text">1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</p>
-                    
-                    <div class="options-group">
-                        <label class="option-label">
-                            <input type="radio" name="q1" value="errado">
-                            <span class="custom-radio"></span>
-                            <span class="text-content">Compartilho imediatamente para alertar meus amigos e familiares.</span>
-                        </label>
-                        
-                        <label class="option-label">
-                            <input type="radio" name="q1" value="correto">
-                            <span class="custom-radio"></span>
-                            <span class="text-content">Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="submit-btn">Verificar Resposta</button>
-            </form>
-            
-            <div id="resultado" class="result-message" aria-live="polite"></div>
+            <div class="options-container">
+                <label class="option-label">
+                    <input type="radio" name="quiz" value="errado">
+                    <span>Compartilho imediatamente para alertar meus amigos.</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="quiz" value="certo">
+                    <span>Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.</span>
+                </label>
+            </div>
+
+            <button class="btn-verify" onclick="verificarResposta()">Verificar Resposta</button>
+            <div id="resultado"></div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>&copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital. Conteúdo 100% Autoral.</p>
+    <footer>
+        &copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital. Conteúdo 100% Autoral.
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Função para alternar entre Modo Claro e Escuro
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+
+        // Função para validar o quiz interativo
+        function verificarResposta() {
+            const selecionado = document.querySelector('input[name="quiz"]:checked');
+            const resultadoDiv = document.getElementById('resultado');
+
+            if (!selecionado) {
+                resultadoDiv.className = "danger";
+                resultadoDiv.style.display = "block";
+                resultadoDiv.innerHTML = "Por favor, selecione uma alternativa antes de verificar!";
+                return;
+            }
+
+            if (selecionado.value === "certo") {
+                resultadoDiv.className = "success";
+                resultadoDiv.style.display = "block";
+                resultadoDiv.innerHTML = "🎉 Correto! Sempre cheque fontes oficiais e analise os detalhes do vídeo antes de compartilhar.";
+            } else {
+                resultadoDiv.className = "danger";
+                resultadoDiv.style.display = "block";
+                resultadoDiv.innerHTML = "❌ Incorreto. Compartilhar sem checar ajuda a espalhar desinformação de deepfakes perigosas.";
+            }
+        }
+    </script>
 </body>
 </html>
