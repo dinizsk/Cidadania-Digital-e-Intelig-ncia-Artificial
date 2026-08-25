@@ -1,246 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital & IA</title>
-    <style>
-        :root {
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --primary-color: #4a90e2;
-            --accent-color: #e74c3c;
-            --success-color: #2ecc71;
-            --border-radius: 12px;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-color: #f5f5f5;
-            --primary-color: #357abd;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vi;
-            align-items: center;
-        }
-
-        header {
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .btn-toggle {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
-        .btn-toggle:hover {
-            opacity: 0.9;
-        }
-
-        main {
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            transition: background-color 0.3s;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-
-        h2 {
-            margin-top: 0;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 8px;
-        }
-
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .option-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            border: 2px solid transparent;
-            background-color: rgba(0,0,0,0.02);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        [data-theme="dark"] .option-label {
-            background-color: rgba(255,255,255,0.03);
-        }
-
-        .option-label:hover {
-            background-color: rgba(74, 144, 226, 0.1);
-        }
-
-        .option-label input {
-            accent-color: var(--primary-color);
-            transform: scale(1.2);
-        }
-
-        .btn-verify {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            display: none;
-        }
-
-        .success {
-            background-color: rgba(46, 204, 113, 0.2);
-            color: var(--success-color);
-            border-left: 5px solid var(--success-color);
-        }
-
-        .danger {
-            background-color: rgba(231, 76, 60, 0.2);
-            color: var(--accent-color);
-            border-left: 5px solid var(--accent-color);
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael Jackson - Rei do Pop</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div>
-            <h1>Cidadania Digital & IA</h1>
-            <div class="subtitle">Desmascarando as Deepfakes e a Desinformação</div>
-        </div>
-        <button class="btn-toggle" onclick="toggleTheme()">Alternar Modo</button>
-    </header>
+  <div class="card">
+    <h1>Michael Jackson</h1>
+    <p class="subtitle">O Rei do Pop</p>
+    
+    <div class="bio">
+      <p>Um dos artistas culturais mais significativos do século XX, famoso por seus hits inesquecíveis e passos de dança icônicos.</p>
+    </div>
 
-    <main>
-        <section class="card">
-            <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam a aparência e a voz de pessoas reais, frequentemente utilizados para espalhar desinformação automatizada.</p>
-        </section>
+    <ul class="albuns">
+      <li>Thriller (1982)</li>
+      <li>Bad (1987)</li>
+      <li>Dangerous (1991)</li>
+    </ul>
 
-        <section class="card">
-            <h2>Quiz Interativo: É Real ou Deepfake?</h2>
-            <p><strong>1. Um vídeo de um político declarando guerra urgente aparece nas redes sociais sem fontes oficiais. O que você faz?</strong></p>
-            
-            <div class="options-container">
-                <label class="option-label">
-                    <input type="radio" name="quiz" value="errado">
-                    <span>Compartilho imediatamente para alertar meus amigos.</span>
-                </label>
-                <label class="option-label">
-                    <input type="radio" name="quiz" value="certo">
-                    <span>Desconfio, analiso falhas de sincronia labial e busco em portais de notícias confiáveis.</span>
-                </label>
-            </div>
+    <button id="btn-danca">Executar o Moonwalk</button>
+    <p id="status-danca"></p>
+  </div>
 
-            <button class="btn-verify" onclick="verificarResposta()">Verificar Resposta</button>
-            <div id="resultado"></div>
-        </section>
-    </main>
-
-    <footer>
-        &copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital. Conteúdo 100% Autoral.
-    </footer>
-
-    <script>
-        // Função para alternar entre Modo Claro e Escuro
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-            }
-        }
-
-        // Função para validar o quiz interativo
-        function verificarResposta() {
-            const selecionado = document.querySelector('input[name="quiz"]:checked');
-            const resultadoDiv = document.getElementById('resultado');
-
-            if (!selecionado) {
-                resultadoDiv.className = "danger";
-                resultadoDiv.style.display = "block";
-                resultadoDiv.innerHTML = "Por favor, selecione uma alternativa antes de verificar!";
-                return;
-            }
-
-            if (selecionado.value === "certo") {
-                resultadoDiv.className = "success";
-                resultadoDiv.style.display = "block";
-                resultadoDiv.innerHTML = "🎉 Correto! Sempre cheque fontes oficiais e analise os detalhes do vídeo antes de compartilhar.";
-            } else {
-                resultadoDiv.className = "danger";
-                resultadoDiv.style.display = "block";
-                resultadoDiv.innerHTML = "❌ Incorreto. Compartilhar sem checar ajuda a espalhar desinformação de deepfakes perigosas.";
-            }
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
